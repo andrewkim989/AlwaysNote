@@ -1,0 +1,15 @@
+<div id = "notenew">
+  <h3>Add a new note</h3>
+
+  <form (submit) = "createNote()" #noteData = "ngForm">
+    <span *ngIf = "note.invalid && (note.dirty || note.touched)" >
+      <span *ngIf = "note.errors.minlength">Note must be at least 5 characters long</span>
+    </span><br/>
+    Note: 
+    <input type = "text" name = "note" [(ngModel)] = "newNote.note" #note = "ngModel"
+      ngModel required minlength = "5" size = "40" placeholder = "Write something here"/>
+
+    <input type = "submit" value = "Create Note" 
+    class = "btn btn-success" [disabled] = "noteData.form.invalid"/>
+  </form>
+</div>

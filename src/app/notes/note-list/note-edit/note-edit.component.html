@@ -1,0 +1,16 @@
+<div id = "noteedit">
+  <h3>Edit Note</h3>
+  
+  <form (submit) = "edit()" #noteData = "ngForm">
+    <span *ngIf = "note.invalid && (note.dirty || note.touched)" >
+      <span *ngIf = "note.errors.minlength">Note must be at least 5 characters long</span>
+    </span><br/>
+
+    <input type = "text" name = "note" [(ngModel)] = "editNote.note" #note = "ngModel"
+      ngModel required minlength = "5" size = "40"/>
+
+    <input type = "submit" value = "Save Edit" 
+    class = "btn btn-info" [disabled] = "noteData.form.invalid"/>
+  </form>
+  <button class = "btn btn-secondary" (click) = "cancel()">Cancel</button>
+</div>

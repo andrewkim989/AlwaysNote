@@ -1,0 +1,11 @@
+#notes {
+    margin: auto;
+    margin-top: 20px;
+    width: 1200px;
+}
+#instructions {
+    background-color: lightblue;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

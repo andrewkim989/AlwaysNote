@@ -1,0 +1,29 @@
+<div id = "notelist">
+  <h3>Note List</h3>
+
+  <table class = "table table-striped">
+    <thead>
+      <tr>
+        <th scope = "col">ID</th>
+        <th scope = "col">Note</th>
+        <th scope = "col">Date Created</th>
+        <th scope = "col">Date Updated</th>
+        <th scope = "col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let note of notes">
+        <td>{{note.id}}</td>
+        <td>{{note.note}}</td>
+        <td>{{note.created_at | date: "short"}}</td>
+        <td>{{note.updated_at | date: "short"}}</td>
+        <td>
+          <button class = "btn btn-primary" (click) = "edit(note)">Edit</button>
+          <button class = "btn btn-secondary" (click) = "delete(note)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-note-edit *ngIf = "showEdit" [note] = "note" (closeComponent) = "closeEdit()"></app-note-edit>
+</div>
